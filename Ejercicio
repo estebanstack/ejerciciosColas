@@ -1,0 +1,54 @@
+import java.util.*;
+
+public class Ejercicio{
+    
+
+    public static void main(String[] args){
+        Stack<Integer> pila= new Stack<>();
+
+        pila.push(10);
+        pila.push(20);
+        pila.push(30);
+        pila.push(40);
+
+        Queue<Integer> cola= new LinkedList<>();
+
+        while(!pila.isEmpty()){
+            cola.add(pila.pop());
+        }    
+        // System.out.println("Cola: "+ cola);
+        
+        while(!cola.isEmpty()){
+            pila.push(cola.poll());
+        }
+
+        System.out.println("Pila: "+pila);
+
+        isPalindrome("hola");
+    }
+
+
+    public static void isPalindrome(String palabra){
+        Queue<Character> colaAux=new LinkedList<>();
+        Stack<Character> pilaAux=new Stack<>();
+        for (int i = 0; i < palabra.length(); i++){
+           colaAux.add(palabra.charAt(i));
+           pilaAux.push(palabra.charAt(i));
+        }
+        
+   
+        while(!colaAux.isEmpty() && !pilaAux.isEmpty()){
+            if(colaAux.poll()==pilaAux.pop()){
+            }else{
+                System.out.println("No es palindromo");
+                break;
+            }
+        }
+        if(colaAux.isEmpty()){
+            System.out.println("Es palindromo");
+        }
+
+        
+        
+    }
+}
