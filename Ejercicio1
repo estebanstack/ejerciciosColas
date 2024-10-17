@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Ejercicio1 {
+    public static void main(String[] args) {
+        Queue<Integer> cola=new LinkedList<>();
+        cola.add(1);
+        cola.add(2);
+        cola.add(3);
+        cola.add(4);
+        cola.add(5);
+        cola.add(6);
+
+        eliminarElemento(cola,2);
+        System.out.println(cola);
+    }
+
+    public static boolean eliminarElemento(Queue<Integer> cola, int dato) {
+        if(cola.isEmpty()){
+            return false;
+        }else if(cola.peek() == dato){
+            return true;
+        }
+        cola.poll();
+        return eliminarElemento(cola, dato);
+
+    }
+}
