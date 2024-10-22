@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main{
+
+    public static void main(String[] args){
+        Deque<Integer> bicola= new ArrayDeque<Integer>();
+
+        bicola.addLast(10);
+        bicola.addLast(20);
+        bicola.addLast(15);
+        bicola.addLast(30);
+        bicola.addLast(40);
+        
+        System.out.println(bicola);
+
+        Funcion(bicola, 15);
+
+        
+        System.out.println(bicola);
+
+    }
+
+    public static void Funcion(Deque<Integer> bicola, int dato){
+        while(!bicola.isEmpty()){
+            if(bicola.peek()==dato){
+                bicola.poll();
+            }
+            bicola.addLast(bicola.pollLast());
+
+        }
+    }
+}
