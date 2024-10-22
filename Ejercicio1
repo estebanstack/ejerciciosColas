@@ -1,3 +1,4 @@
+package Ejercicios;
 import java.util.*;
 
 public class Ejercicio1 {
@@ -10,18 +11,22 @@ public class Ejercicio1 {
         cola.add(5);
         cola.add(6);
 
-        eliminarElemento(cola,2);
+        eliminarElemento(cola,5);
         System.out.println(cola);
-    }
-
-    public static boolean eliminarElemento(Queue<Integer> cola, int dato) {
-        if(cola.isEmpty()){
-            return false;
-        }else if(cola.peek() == dato){
-            return true;
         }
-        cola.poll();
-        return eliminarElemento(cola, dato);
 
+        public static boolean eliminarElemento(Queue<Integer> cola, int dato) {
+            if(cola.isEmpty()){
+                return false;
+            }else if(cola.peek() == dato){
+                cola.poll();
+                return true;
+            }
+
+            cola.add(cola.poll());
+            return eliminarElemento(cola, dato);
+
+        }
     }
-}
+
+
